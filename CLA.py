@@ -27,6 +27,13 @@
 # On 20130210, v0.2
 # Critical Line Algorithm
 # by MLdP <lopezdeprado@lbl.gov>
+#
+# From: http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2197616
+#
+# "All code in this paper is provided 'as is', and contributed to the
+# academic community for non-business purposes only, under a GNU-GPL
+# license"
+#
 import numpy as np
 #---------------------------------------------------------------
 #---------------------------------------------------------------
