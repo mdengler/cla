@@ -35,6 +35,10 @@
 # license"
 #
 
+import os
+import urllib2
+
+
 def plot2D(x, y, xLabel = '', yLabel = '', title = '', pathChart = None):
     import matplotlib.pyplot as mpl
     fig = mpl.figure()
@@ -51,11 +55,11 @@ def plot2D(x, y, xLabel = '', yLabel = '', title = '', pathChart = None):
         mpl.clf() # reset pylab
     return
 
-def main():
+def main(args):
     import numpy as np
     import CLA
     #1) Path
-    path='H:/PROJECTS/Data/CLA_Data.csv'
+    path=args[0]
     #2) Load data, set seed
     headers=open(path,'r').readline().split(',')[:-1]
     data=np.genfromtxt(path,delimiter=',',skip_header=1) # load as numpy array
@@ -81,4 +85,12 @@ def main():
     return
 #---------------------------------------------------------------
 # Boilerplate
-if __name__ == '__main__':main()
+if __name__ == '__main__':
+    import sys
+    args = sys.argv[1:]
+    if len(args) < 1:
+        args.append("data.csv")
+        if not os.path.exists("data.csv"):
+            url = "http://www.quantresearch.info/CLA_Data.csv.txt"
+            open("data.csv", "w").write(urllib2.urlopen(url).read())
+    main(args)
