@@ -1,4 +1,29 @@
 #!/usr/bin/env python
+#
+# I (Martin Dengler) have been given the OK to upload this code to
+# github, as long as I indicate:
+#
+# 1.  That David H. Bailey and Marcos Lopez de Prado are the original
+#     authors.
+#
+# 2.  That this code is provided under a GPL license for
+#     non-commercial purposes.
+#
+# 3.  That the original authors retain the rights as it relates to
+#     commercial applications.
+#
+# The accompanying paper was published in an open-access application:
+# http://ssrn.com/abstract=2197616
+#
+# The original code is here:
+#
+# http://www.quantresearch.info/CLA.py.txt
+# http://www.quantresearch.info/CLA_Main.py.txt
+#
+# A sample dataset can be found here:
+# http://www.quantresearch.info/CLA_Data.csv.txt
+#
+#
 # On 20130210, v0.2
 # Critical Line Algorithm Snippet 16. Using the CLA class.
 # by MLdP <lopezdeprado@lbl.gov>
