@@ -133,7 +133,7 @@ class CLA:
         onesF=np.ones(meanF.shape)
         g1=np.dot(np.dot(onesF.T,covarF_inv),meanF)
         g2=np.dot(np.dot(onesF.T,covarF_inv),onesF)
-        if wB==None:
+        if wB is None:
             g,w1=float(-self.l[-1]*g1/g2+1/g2),0
         else:
             onesB=np.ones(wB.shape)
@@ -159,7 +159,7 @@ class CLA:
         #2) bi
         if type(bi)==list:bi=self.computeBi(c,bi)
         #3) Lambda
-        if wB==None:
+        if wB is None:
             # All free assets
             return float((c4[i]-c1*bi)/c),bi
         else:
