@@ -88,11 +88,13 @@ class CLA:
                 if l_in>l_out:
                     self.l.append(l_in)
                     f.remove(i_in)
+                    covarF,covarFB,meanF,wB=self.getMatrices(f)
                     w[i_in]=bi_in # set value at the correct boundary
+                    wB[i_in]=bi_in
                 else:
                     self.l.append(l_out)
                     f.append(i_out)
-                covarF,covarFB,meanF,wB=self.getMatrices(f)
+                    covarF,covarFB,meanF,wB=self.getMatrices(f)
                 covarF_inv=np.linalg.inv(covarF)
             #5) compute solution vector
             wF,g=self.computeW(covarF_inv,covarFB,meanF,wB)
