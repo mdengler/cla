@@ -40,10 +40,10 @@ http://ssrn.com/abstract=2197616
 
 The original code is here:
 
-http://www.quantresearch.info/CLA.py.txt
-http://www.quantresearch.info/CLA_Main.py.txt
+http://www.quantresearch.org/CLA.py.txt
+http://www.quantresearch.org/CLA_Main.py.txt
 
 A sample dataset can be found here:
-http://www.quantresearch.info/CLA_Data.csv.txt
+http://www.quantresearch.org/CLA_Data.csv.txt
 
 
