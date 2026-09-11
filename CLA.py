@@ -53,12 +53,12 @@ class CLA:
         # Compute the turning points,free sets and weights
         f,w=self.initAlgo()
         self.w.append(np.copy(w)) # store solution
-        self.l.append(None)
+        self.l.append(np.nan)
         self.g.append(None)
         self.f.append(f[:])
         while True:
             #1) case a): Bound one free weight
-            l_in=None
+            l_in=-np.inf
             if len(f)>1:
                 covarF,covarFB,meanF,wB=self.getMatrices(f)
                 covarF_inv=np.linalg.inv(covarF)
@@ -68,7 +68,7 @@ class CLA:
                     if l>l_in:l_in,i_in,bi_in=l,i,bi
                     j+=1
             #2) case b): Free one bounded weight
-            l_out=None
+            l_out=-np.inf
             if len(f)<self.mean.shape[0]:
                 b=self.getB(f)
                 for i in b:
@@ -76,8 +76,8 @@ class CLA:
                     covarF_inv=np.linalg.inv(covarF)
                     l,bi=self.computeLambda(covarF_inv,covarFB,meanF,wB,meanF.shape[0]-1, \
                         self.w[-1][i])
-                    if (self.l[-1]==None or l<self.l[-1]) and l>l_out:l_out,i_out=l,i
-            if (l_in==None or l_in<0) and (l_out==None or l_out<0):
+                    if (np.isnan(self.l[-1]) or l<self.l[-1]) and l>l_out:l_out,i_out=l,i
+            if (l_in==-np.inf or l_in<0) and (l_out==-np.inf or l_out<0):
                 #3) compute minimum variance solution
                 self.l.append(0)
                 covarF,covarFB,meanF,wB=self.getMatrices(f)
