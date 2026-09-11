@@ -112,7 +112,7 @@ class CLA:
         #1) Form structured array
         a=np.zeros((self.mean.shape[0]),dtype=[('id',int),('mu',float)])
         b=[self.mean[i][0] for i in range(self.mean.shape[0])] # dump array into list
-        a[:]=zip(range(self.mean.shape[0]),b) # fill structured array
+        a[:]=list(zip(range(self.mean.shape[0]),b)) # fill structured array
         #2) Sort structured array
         b=np.sort(a,order='mu')
         #3) First free weight
@@ -294,11 +294,11 @@ class CLA:
     def efFrontier(self,points):
         # Get the efficient frontier
         mu,sigma,weights=[],[],[]
-        a=np.linspace(0,1,points/len(self.w))[:-1] # remove the 1, to avoid duplications
+        a=np.linspace(0,1,points//len(self.w))[:-1] # remove the 1, to avoid duplications
         b=range(len(self.w)-1)
         for i in b:
             w0,w1=self.w[i],self.w[i+1]
-            if i==b[-1]:a=np.linspace(0,1,points/len(self.w)) # include the 1 in the last iteration
+            if i==b[-1]:a=np.linspace(0,1,points//len(self.w)) # include the 1 in the last iteration
             for j in a:
                 w=w1*j+(1-j)*w0
                 weights.append(np.copy(w))
