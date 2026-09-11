@@ -90,6 +90,7 @@ class CLA:
                     f.remove(i_in)
                     covarF,covarFB,meanF,wB=self.getMatrices(f)
                     w[i_in]=bi_in # set value at the correct boundary
+                    wB=np.copy(wB) # reduceMatrix can alias self.w[-1]; do not write through it
                     wB[self.getB(f).index(i_in)]=bi_in # wB is positional over the bound set
                 else:
                     self.l.append(l_out)
