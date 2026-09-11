@@ -89,8 +89,5 @@ if __name__ == '__main__':
     import sys
     args = sys.argv[1:]
     if len(args) < 1:
-        args.append("data.csv")
-        if not os.path.exists("data.csv"):
-            url = "http://www.quantresearch.info/CLA_Data.csv.txt"
-            open("data.csv", "w").write(urllib2.urlopen(url).read())
+        args.append("data.csv" if os.path.exists("data.csv") else "CLA_Data.csv")
     main(args)
