@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env -S uv run
+# /// script
+# requires-python = ">=3.9"
+# dependencies = [
+#   "matplotlib",
+#   "numpy",
+# ]
+# ///
 #
 # I (Martin Dengler) have been given the OK to upload this code to
 # github, as long as I indicate:
