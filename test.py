@@ -70,18 +70,18 @@ def main(args):
     #3) Invoke object
     cla=CLA.CLA(mean,covar,lB,uB)
     cla.solve()
-    print cla.w # print all turning points
+    print(cla.w) # print all turning points
     #4) Plot frontier
     mu,sigma,weights=cla.efFrontier(100)
     plot2D(sigma, mu, 'Risk', 'Expected Excess Return', 'CLA-derived Efficient Frontier')
     #5) Get Maximum Sharpe ratio portfolio
     sr,w_sr = cla.getMaxSR()
-    print np.dot(np.dot(w_sr.T, cla.covar), w_sr)[0, 0]**.5, sr
-    print w_sr
+    print(np.dot(np.dot(w_sr.T, cla.covar), w_sr)[0, 0]**.5, sr)
+    print(w_sr)
     #6) Get Minimum Variance portfolio
     mv, w_mv = cla.getMinVar()
-    print mv
-    print w_mv
+    print(mv)
+    print(w_mv)
     return
 #---------------------------------------------------------------
 # Boilerplate
