@@ -36,7 +36,6 @@
 #
 
 import os
-import urllib2
 
 
 def plot2D(x, y, xLabel = '', yLabel = '', title = '', pathChart = None):
